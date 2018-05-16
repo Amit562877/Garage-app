@@ -1,0 +1,1264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="garageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="12" Nullable="false" />
+        </EntityType>
+        <EntityType Name="advance">
+          <Key>
+            <PropertyRef Name="Advance_Id" />
+          </Key>
+          <Property Name="Advance_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Advance_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="attendence">
+          <Key>
+            <PropertyRef Name="Attendence_Id" />
+          </Key>
+          <Property Name="Attendence_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" />
+          <Property Name="Present_Id" Type="int" />
+          <Property Name="Attendence_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="bill">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" />
+          <Property Name="Bill_Date" Type="datetime" />
+          <Property Name="Pay_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="bill_detail">
+          <Key>
+            <PropertyRef Name="Bill_Detail_Id" />
+          </Key>
+          <Property Name="Bill_Detail_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bill_Id" Type="int" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="Discount" Type="money" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Company_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Category_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Phone" Type="bigint" />
+          <Property Name="City" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="Employee_Id" />
+          </Key>
+          <Property Name="Employee_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="Phone" Type="bigint" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salary" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pay">
+          <Key>
+            <PropertyRef Name="pay_Id" />
+          </Key>
+          <Property Name="pay_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="present">
+          <Key>
+            <PropertyRef Name="Present_Id" />
+          </Key>
+          <Property Name="Present_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Product_Id" />
+          </Key>
+          <Property Name="Product_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="varchar" MaxLength="40" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Company_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="Purchase_Id" />
+          </Key>
+          <Property Name="Purchase_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purchase_Name" Type="varchar" MaxLength="30" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="Company_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+          <Property Name="Purchase_Date" Type="datetime" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Pay_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="purchase_pay">
+          <Key>
+            <PropertyRef Name="Pay_Id" />
+          </Key>
+          <Property Name="Pay_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purchase_Id" Type="int" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="Paid_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="salary">
+          <Key>
+            <PropertyRef Name="Salary_Id" />
+          </Key>
+          <Property Name="Salary_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Id" Type="int" />
+          <Property Name="Salary_Amount" Type="money" />
+          <Property Name="Advance_Cut" Type="money" />
+          <Property Name="Total_Pay" Type="money" />
+          <Property Name="Salary_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="Stock_Id" />
+          </Key>
+          <Property Name="Stock_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Id" Type="int" />
+          <Property Name="Company_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <Association Name="FK__advance__Employe__40058253">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="advance" Type="Self.advance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="advance">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__attendenc__Emplo__3D2915A8">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="attendence" Type="Self.attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="attendence">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__attendenc__Prese__3C34F16F">
+          <End Role="present" Type="Self.present" Multiplicity="0..1" />
+          <End Role="attendence" Type="Self.attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="present">
+              <PropertyRef Name="Present_Id" />
+            </Principal>
+            <Dependent Role="attendence">
+              <PropertyRef Name="Present_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill__Customer_I__0E6E26BF">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="bill" Type="Self.bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="bill">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill__Pay_Id__607251E5">
+          <End Role="pay" Type="Self.pay" Multiplicity="0..1" />
+          <End Role="bill" Type="Self.bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pay">
+              <PropertyRef Name="pay_Id" />
+            </Principal>
+            <Dependent Role="bill">
+              <PropertyRef Name="Pay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Bill___0F624AF8">
+          <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bill">
+              <PropertyRef Name="Bill_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Bill_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Categ__0697FACD">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Compa__078C1F06">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Produ__797309D9">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__company__Categor__75A278F5">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="company" Type="Self.company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="company">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__Categor__4D5F7D71">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__Company__76969D2E">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase___Purch__0C50D423">
+          <End Role="purchase" Type="Self.purchase" Multiplicity="0..1" />
+          <End Role="purchase_pay" Type="Self.purchase_pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase">
+              <PropertyRef Name="Purchase_Id" />
+            </Principal>
+            <Dependent Role="purchase_pay">
+              <PropertyRef Name="Purchase_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Catego__0D44F85C">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Compan__0E391C95">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Pay_Id__0F2D40CE">
+          <End Role="pay" Type="Self.pay" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pay">
+              <PropertyRef Name="pay_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Pay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Produc__10216507">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__salary__Employee__4B7734FF">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="salary" Type="Self.salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="salary">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Category___7755B73D">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Company_I__76619304">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Product_I__756D6ECB">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="garageModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="advance" EntityType="Self.advance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="attendence" EntityType="Self.attendence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bill_detail" EntityType="Self.bill_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="company" EntityType="Self.company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pay" EntityType="Self.pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="present" EntityType="Self.present" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchase" EntityType="Self.purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchase_pay" EntityType="Self.purchase_pay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="salary" EntityType="Self.salary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__advance__Employe__40058253" Association="Self.FK__advance__Employe__40058253">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="advance" EntitySet="advance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__attendenc__Emplo__3D2915A8" Association="Self.FK__attendenc__Emplo__3D2915A8">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="attendence" EntitySet="attendence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__attendenc__Prese__3C34F16F" Association="Self.FK__attendenc__Prese__3C34F16F">
+            <End Role="present" EntitySet="present" />
+            <End Role="attendence" EntitySet="attendence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill__Customer_I__0E6E26BF" Association="Self.FK__bill__Customer_I__0E6E26BF">
+            <End Role="customer" EntitySet="customer" />
+            <End Role="bill" EntitySet="bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill__Pay_Id__607251E5" Association="Self.FK__bill__Pay_Id__607251E5">
+            <End Role="pay" EntitySet="pay" />
+            <End Role="bill" EntitySet="bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Bill___0F624AF8" Association="Self.FK__bill_deta__Bill___0F624AF8">
+            <End Role="bill" EntitySet="bill" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Categ__0697FACD" Association="Self.FK__bill_deta__Categ__0697FACD">
+            <End Role="category" EntitySet="category" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Compa__078C1F06" Association="Self.FK__bill_deta__Compa__078C1F06">
+            <End Role="company" EntitySet="company" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Produ__797309D9" Association="Self.FK__bill_deta__Produ__797309D9">
+            <End Role="product" EntitySet="product" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__company__Categor__75A278F5" Association="Self.FK__company__Categor__75A278F5">
+            <End Role="category" EntitySet="category" />
+            <End Role="company" EntitySet="company" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__Categor__4D5F7D71" Association="Self.FK__product__Categor__4D5F7D71">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__Company__76969D2E" Association="Self.FK__product__Company__76969D2E">
+            <End Role="company" EntitySet="company" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase___Purch__0C50D423" Association="Self.FK__purchase___Purch__0C50D423">
+            <End Role="purchase" EntitySet="purchase" />
+            <End Role="purchase_pay" EntitySet="purchase_pay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Catego__0D44F85C" Association="Self.FK__purchase__Catego__0D44F85C">
+            <End Role="category" EntitySet="category" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Compan__0E391C95" Association="Self.FK__purchase__Compan__0E391C95">
+            <End Role="company" EntitySet="company" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Pay_Id__0F2D40CE" Association="Self.FK__purchase__Pay_Id__0F2D40CE">
+            <End Role="pay" EntitySet="pay" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Produc__10216507" Association="Self.FK__purchase__Produc__10216507">
+            <End Role="product" EntitySet="product" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK__salary__Employee__4B7734FF" Association="Self.FK__salary__Employee__4B7734FF">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="salary" EntitySet="salary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Category___7755B73D" Association="Self.FK__stock__Category___7755B73D">
+            <End Role="category" EntitySet="category" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Company_I__76619304" Association="Self.FK__stock__Company_I__76619304">
+            <End Role="company" EntitySet="company" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Product_I__756D6ECB" Association="Self.FK__stock__Product_I__756D6ECB">
+            <End Role="product" EntitySet="product" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="garageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="12" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="advance">
+          <Key>
+            <PropertyRef Name="Advance_Id" />
+          </Key>
+          <Property Name="Advance_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Id" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Advance_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employee" Relationship="Self.FK__advance__Employe__40058253" FromRole="advance" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="attendence">
+          <Key>
+            <PropertyRef Name="Attendence_Id" />
+          </Key>
+          <Property Name="Attendence_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Id" Type="Int32" />
+          <Property Name="Present_Id" Type="Int32" />
+          <Property Name="Attendence_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employee" Relationship="Self.FK__attendenc__Emplo__3D2915A8" FromRole="attendence" ToRole="employee" />
+          <NavigationProperty Name="present" Relationship="Self.FK__attendenc__Prese__3C34F16F" FromRole="attendence" ToRole="present" />
+        </EntityType>
+        <EntityType Name="bill">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Id" Type="Int32" />
+          <Property Name="Bill_Date" Type="DateTime" Precision="3" />
+          <Property Name="Pay_Id" Type="Int32" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__bill__Customer_I__0E6E26BF" FromRole="bill" ToRole="customer" />
+          <NavigationProperty Name="pay" Relationship="Self.FK__bill__Pay_Id__607251E5" FromRole="bill" ToRole="pay" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK__bill_deta__Bill___0F624AF8" FromRole="bill" ToRole="bill_detail" />
+        </EntityType>
+        <EntityType Name="bill_detail">
+          <Key>
+            <PropertyRef Name="Bill_Detail_Id" />
+          </Key>
+          <Property Name="Bill_Detail_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bill_Id" Type="Int32" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Company_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <NavigationProperty Name="bill" Relationship="Self.FK__bill_deta__Bill___0F624AF8" FromRole="bill_detail" ToRole="bill" />
+          <NavigationProperty Name="category" Relationship="Self.FK__bill_deta__Categ__0697FACD" FromRole="bill_detail" ToRole="category" />
+          <NavigationProperty Name="company" Relationship="Self.FK__bill_deta__Compa__078C1F06" FromRole="bill_detail" ToRole="company" />
+          <NavigationProperty Name="product" Relationship="Self.FK__bill_deta__Produ__797309D9" FromRole="bill_detail" ToRole="product" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="Category_Id" />
+          </Key>
+          <Property Name="Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK__bill_deta__Categ__0697FACD" FromRole="category" ToRole="bill_detail" />
+          <NavigationProperty Name="companies" Relationship="Self.FK__company__Categor__75A278F5" FromRole="category" ToRole="company" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__Categor__4D5F7D71" FromRole="category" ToRole="product" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase__Catego__0D44F85C" FromRole="category" ToRole="purchase" />
+          <NavigationProperty Name="stocks" Relationship="Self.FK__stock__Category___7755B73D" FromRole="category" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Company_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Category_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK__bill_deta__Compa__078C1F06" FromRole="company" ToRole="bill_detail" />
+          <NavigationProperty Name="category" Relationship="Self.FK__company__Categor__75A278F5" FromRole="company" ToRole="category" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__Company__76969D2E" FromRole="company" ToRole="product" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase__Compan__0E391C95" FromRole="company" ToRole="purchase" />
+          <NavigationProperty Name="stocks" Relationship="Self.FK__stock__Company_I__76619304" FromRole="company" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int64" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bills" Relationship="Self.FK__bill__Customer_I__0E6E26BF" FromRole="customer" ToRole="bill" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="Employee_Id" />
+          </Key>
+          <Property Name="Employee_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int64" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="advances" Relationship="Self.FK__advance__Employe__40058253" FromRole="employee" ToRole="advance" />
+          <NavigationProperty Name="attendences" Relationship="Self.FK__attendenc__Emplo__3D2915A8" FromRole="employee" ToRole="attendence" />
+          <NavigationProperty Name="salaries" Relationship="Self.FK__salary__Employee__4B7734FF" FromRole="employee" ToRole="salary" />
+        </EntityType>
+        <EntityType Name="pay">
+          <Key>
+            <PropertyRef Name="pay_Id" />
+          </Key>
+          <Property Name="pay_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bills" Relationship="Self.FK__bill__Pay_Id__607251E5" FromRole="pay" ToRole="bill" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase__Pay_Id__0F2D40CE" FromRole="pay" ToRole="purchase" />
+        </EntityType>
+        <EntityType Name="present">
+          <Key>
+            <PropertyRef Name="Present_Id" />
+          </Key>
+          <Property Name="Present_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="attendences" Relationship="Self.FK__attendenc__Prese__3C34F16F" FromRole="present" ToRole="attendence" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Product_Id" />
+          </Key>
+          <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Company_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <NavigationProperty Name="bill_detail" Relationship="Self.FK__bill_deta__Produ__797309D9" FromRole="product" ToRole="bill_detail" />
+          <NavigationProperty Name="category" Relationship="Self.FK__product__Categor__4D5F7D71" FromRole="product" ToRole="category" />
+          <NavigationProperty Name="company" Relationship="Self.FK__product__Company__76969D2E" FromRole="product" ToRole="company" />
+          <NavigationProperty Name="purchases" Relationship="Self.FK__purchase__Produc__10216507" FromRole="product" ToRole="purchase" />
+          <NavigationProperty Name="stocks" Relationship="Self.FK__stock__Product_I__756D6ECB" FromRole="product" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="Purchase_Id" />
+          </Key>
+          <Property Name="Purchase_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purchase_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="Company_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <Property Name="Purchase_Date" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Pay_Id" Type="Int32" />
+          <NavigationProperty Name="category" Relationship="Self.FK__purchase__Catego__0D44F85C" FromRole="purchase" ToRole="category" />
+          <NavigationProperty Name="company" Relationship="Self.FK__purchase__Compan__0E391C95" FromRole="purchase" ToRole="company" />
+          <NavigationProperty Name="pay" Relationship="Self.FK__purchase__Pay_Id__0F2D40CE" FromRole="purchase" ToRole="pay" />
+          <NavigationProperty Name="product" Relationship="Self.FK__purchase__Produc__10216507" FromRole="purchase" ToRole="product" />
+          <NavigationProperty Name="purchase_pay" Relationship="Self.FK__purchase___Purch__0C50D423" FromRole="purchase" ToRole="purchase_pay" />
+        </EntityType>
+        <EntityType Name="purchase_pay">
+          <Key>
+            <PropertyRef Name="Pay_Id" />
+          </Key>
+          <Property Name="Pay_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purchase_Id" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Paid_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="purchase" Relationship="Self.FK__purchase___Purch__0C50D423" FromRole="purchase_pay" ToRole="purchase" />
+        </EntityType>
+        <EntityType Name="salary">
+          <Key>
+            <PropertyRef Name="Salary_Id" />
+          </Key>
+          <Property Name="Salary_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Id" Type="Int32" />
+          <Property Name="Salary_Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Advance_Cut" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Total_Pay" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Salary_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="employee" Relationship="Self.FK__salary__Employee__4B7734FF" FromRole="salary" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="Stock_Id" />
+          </Key>
+          <Property Name="Stock_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Id" Type="Int32" />
+          <Property Name="Company_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="category" Relationship="Self.FK__stock__Category___7755B73D" FromRole="stock" ToRole="category" />
+          <NavigationProperty Name="company" Relationship="Self.FK__stock__Company_I__76619304" FromRole="stock" ToRole="company" />
+          <NavigationProperty Name="product" Relationship="Self.FK__stock__Product_I__756D6ECB" FromRole="stock" ToRole="product" />
+        </EntityType>
+        <Association Name="FK__advance__Employe__40058253">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="advance" Type="Self.advance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="advance">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__attendenc__Emplo__3D2915A8">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="attendence" Type="Self.attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="attendence">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__attendenc__Prese__3C34F16F">
+          <End Role="present" Type="Self.present" Multiplicity="0..1" />
+          <End Role="attendence" Type="Self.attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="present">
+              <PropertyRef Name="Present_Id" />
+            </Principal>
+            <Dependent Role="attendence">
+              <PropertyRef Name="Present_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill__Customer_I__0E6E26BF">
+          <End Role="customer" Type="Self.customer" Multiplicity="0..1" />
+          <End Role="bill" Type="Self.bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="bill">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill__Pay_Id__607251E5">
+          <End Role="pay" Type="Self.pay" Multiplicity="0..1" />
+          <End Role="bill" Type="Self.bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pay">
+              <PropertyRef Name="pay_Id" />
+            </Principal>
+            <Dependent Role="bill">
+              <PropertyRef Name="Pay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Bill___0F624AF8">
+          <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bill">
+              <PropertyRef Name="Bill_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Bill_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Categ__0697FACD">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Compa__078C1F06">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bill_deta__Produ__797309D9">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="bill_detail">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__company__Categor__75A278F5">
+          <End Role="category" Type="Self.category" Multiplicity="1" />
+          <End Role="company" Type="Self.company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="company">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__Categor__4D5F7D71">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Catego__0D44F85C">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Category___7755B73D">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="Category_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__product__Company__76969D2E">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Compan__0E391C95">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Company_I__76619304">
+          <End Role="company" Type="Self.company" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="company">
+              <PropertyRef Name="Company_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Company_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__salary__Employee__4B7734FF">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="salary" Type="Self.salary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="salary">
+              <PropertyRef Name="Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Pay_Id__0F2D40CE">
+          <End Role="pay" Type="Self.pay" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pay">
+              <PropertyRef Name="pay_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Pay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase__Produc__10216507">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__stock__Product_I__756D6ECB">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Product_Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="Product_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__purchase___Purch__0C50D423">
+          <End Role="purchase" Type="Self.purchase" Multiplicity="0..1" />
+          <End Role="purchase_pay" Type="Self.purchase_pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="purchase">
+              <PropertyRef Name="Purchase_Id" />
+            </Principal>
+            <Dependent Role="purchase_pay">
+              <PropertyRef Name="Purchase_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="garageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admins" EntityType="Self.admin" />
+          <EntitySet Name="advances" EntityType="Self.advance" />
+          <EntitySet Name="attendences" EntityType="Self.attendence" />
+          <EntitySet Name="bills" EntityType="Self.bill" />
+          <EntitySet Name="bill_detail" EntityType="Self.bill_detail" />
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="companies" EntityType="Self.company" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="pays" EntityType="Self.pay" />
+          <EntitySet Name="presents" EntityType="Self.present" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="purchases" EntityType="Self.purchase" />
+          <EntitySet Name="purchase_pay" EntityType="Self.purchase_pay" />
+          <EntitySet Name="salaries" EntityType="Self.salary" />
+          <EntitySet Name="stocks" EntityType="Self.stock" />
+          <AssociationSet Name="FK__advance__Employe__40058253" Association="Self.FK__advance__Employe__40058253">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="advance" EntitySet="advances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__attendenc__Emplo__3D2915A8" Association="Self.FK__attendenc__Emplo__3D2915A8">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="attendence" EntitySet="attendences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__attendenc__Prese__3C34F16F" Association="Self.FK__attendenc__Prese__3C34F16F">
+            <End Role="present" EntitySet="presents" />
+            <End Role="attendence" EntitySet="attendences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill__Customer_I__0E6E26BF" Association="Self.FK__bill__Customer_I__0E6E26BF">
+            <End Role="customer" EntitySet="customers" />
+            <End Role="bill" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill__Pay_Id__607251E5" Association="Self.FK__bill__Pay_Id__607251E5">
+            <End Role="pay" EntitySet="pays" />
+            <End Role="bill" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Bill___0F624AF8" Association="Self.FK__bill_deta__Bill___0F624AF8">
+            <End Role="bill" EntitySet="bills" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Categ__0697FACD" Association="Self.FK__bill_deta__Categ__0697FACD">
+            <End Role="category" EntitySet="categories" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Compa__078C1F06" Association="Self.FK__bill_deta__Compa__078C1F06">
+            <End Role="company" EntitySet="companies" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bill_deta__Produ__797309D9" Association="Self.FK__bill_deta__Produ__797309D9">
+            <End Role="product" EntitySet="products" />
+            <End Role="bill_detail" EntitySet="bill_detail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__company__Categor__75A278F5" Association="Self.FK__company__Categor__75A278F5">
+            <End Role="category" EntitySet="categories" />
+            <End Role="company" EntitySet="companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__Categor__4D5F7D71" Association="Self.FK__product__Categor__4D5F7D71">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Catego__0D44F85C" Association="Self.FK__purchase__Catego__0D44F85C">
+            <End Role="category" EntitySet="categories" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Category___7755B73D" Association="Self.FK__stock__Category___7755B73D">
+            <End Role="category" EntitySet="categories" />
+            <End Role="stock" EntitySet="stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__product__Company__76969D2E" Association="Self.FK__product__Company__76969D2E">
+            <End Role="company" EntitySet="companies" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Compan__0E391C95" Association="Self.FK__purchase__Compan__0E391C95">
+            <End Role="company" EntitySet="companies" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Company_I__76619304" Association="Self.FK__stock__Company_I__76619304">
+            <End Role="company" EntitySet="companies" />
+            <End Role="stock" EntitySet="stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__salary__Employee__4B7734FF" Association="Self.FK__salary__Employee__4B7734FF">
+            <End Role="employee" EntitySet="employees" />
+            <End Role="salary" EntitySet="salaries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Pay_Id__0F2D40CE" Association="Self.FK__purchase__Pay_Id__0F2D40CE">
+            <End Role="pay" EntitySet="pays" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase__Produc__10216507" Association="Self.FK__purchase__Produc__10216507">
+            <End Role="product" EntitySet="products" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK__stock__Product_I__756D6ECB" Association="Self.FK__stock__Product_I__756D6ECB">
+            <End Role="product" EntitySet="products" />
+            <End Role="stock" EntitySet="stocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__purchase___Purch__0C50D423" Association="Self.FK__purchase___Purch__0C50D423">
+            <End Role="purchase" EntitySet="purchases" />
+            <End Role="purchase_pay" EntitySet="purchase_pay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="garageModelStoreContainer" CdmEntityContainer="garageEntities">
+          <EntitySetMapping Name="admins">
+            <EntityTypeMapping TypeName="garageModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="advances">
+            <EntityTypeMapping TypeName="garageModel.advance">
+              <MappingFragment StoreEntitySet="advance">
+                <ScalarProperty Name="Advance_Id" ColumnName="Advance_Id" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Advance_Date" ColumnName="Advance_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="attendences">
+            <EntityTypeMapping TypeName="garageModel.attendence">
+              <MappingFragment StoreEntitySet="attendence">
+                <ScalarProperty Name="Attendence_Id" ColumnName="Attendence_Id" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Present_Id" ColumnName="Present_Id" />
+                <ScalarProperty Name="Attendence_Date" ColumnName="Attendence_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bills">
+            <EntityTypeMapping TypeName="garageModel.bill">
+              <MappingFragment StoreEntitySet="bill">
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Bill_Date" ColumnName="Bill_Date" />
+                <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bill_detail">
+            <EntityTypeMapping TypeName="garageModel.bill_detail">
+              <MappingFragment StoreEntitySet="bill_detail">
+                <ScalarProperty Name="Bill_Detail_Id" ColumnName="Bill_Detail_Id" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="garageModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="garageModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="garageModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="garageModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pays">
+            <EntityTypeMapping TypeName="garageModel.pay">
+              <MappingFragment StoreEntitySet="pay">
+                <ScalarProperty Name="pay_Id" ColumnName="pay_Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="presents">
+            <EntityTypeMapping TypeName="garageModel.present">
+              <MappingFragment StoreEntitySet="present">
+                <ScalarProperty Name="Present_Id" ColumnName="Present_Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="garageModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchases">
+            <EntityTypeMapping TypeName="garageModel.purchase">
+              <MappingFragment StoreEntitySet="purchase">
+                <ScalarProperty Name="Purchase_Id" ColumnName="Purchase_Id" />
+                <ScalarProperty Name="Purchase_Name" ColumnName="Purchase_Name" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Purchase_Date" ColumnName="Purchase_Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchase_pay">
+            <EntityTypeMapping TypeName="garageModel.purchase_pay">
+              <MappingFragment StoreEntitySet="purchase_pay">
+                <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+                <ScalarProperty Name="Purchase_Id" ColumnName="Purchase_Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Paid_Date" ColumnName="Paid_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salaries">
+            <EntityTypeMapping TypeName="garageModel.salary">
+              <MappingFragment StoreEntitySet="salary">
+                <ScalarProperty Name="Salary_Id" ColumnName="Salary_Id" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="Salary_Amount" ColumnName="Salary_Amount" />
+                <ScalarProperty Name="Advance_Cut" ColumnName="Advance_Cut" />
+                <ScalarProperty Name="Total_Pay" ColumnName="Total_Pay" />
+                <ScalarProperty Name="Salary_Date" ColumnName="Salary_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stocks">
+            <EntityTypeMapping TypeName="garageModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="Stock_Id" ColumnName="Stock_Id" />
+                <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

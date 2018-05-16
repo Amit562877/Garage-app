@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Garage_app.Models.advance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advance_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee.Employee_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Advance_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee.Employee_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Advance_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Advance_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Advance_Id })
+        </td>
+    </tr>
+}
+
+</table>

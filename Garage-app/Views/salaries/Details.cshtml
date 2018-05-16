@@ -1,0 +1,58 @@
+﻿@model Garage_app.Models.salary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>salary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary_Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary_Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Advance_Cut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Advance_Cut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Pay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Pay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employee.Employee_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employee.Employee_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Salary_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

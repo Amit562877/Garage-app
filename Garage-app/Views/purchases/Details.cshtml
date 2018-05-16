@@ -1,0 +1,74 @@
+﻿@model Garage_app.Models.purchase
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>purchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Purchase_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Purchase_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.Category_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.Category_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.company.Company_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.company.Company_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pay.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pay.Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.Product_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.Product_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Purchase_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
