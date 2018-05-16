@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="garageModelStoreContainer" CdmEntityContainer="garageEntities">
+    <EntitySetMapping Name="admins">
+      <EntityTypeMapping TypeName="garageModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="advances">
+      <EntityTypeMapping TypeName="garageModel.advance">
+        <MappingFragment StoreEntitySet="advance">
+          <ScalarProperty Name="Advance_Id" ColumnName="Advance_Id" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Advance_Date" ColumnName="Advance_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="attendences">
+      <EntityTypeMapping TypeName="garageModel.attendence">
+        <MappingFragment StoreEntitySet="attendence">
+          <ScalarProperty Name="Attendence_Id" ColumnName="Attendence_Id" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Present_Id" ColumnName="Present_Id" />
+          <ScalarProperty Name="Attendence_Date" ColumnName="Attendence_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="garageModel.bill">
+        <MappingFragment StoreEntitySet="bill">
+          <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Bill_Date" ColumnName="Bill_Date" />
+          <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bill_detail">
+      <EntityTypeMapping TypeName="garageModel.bill_detail">
+        <MappingFragment StoreEntitySet="bill_detail">
+          <ScalarProperty Name="Bill_Detail_Id" ColumnName="Bill_Detail_Id" />
+          <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="garageModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="garageModel.company">
+        <MappingFragment StoreEntitySet="company">
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="garageModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="garageModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pays">
+      <EntityTypeMapping TypeName="garageModel.pay">
+        <MappingFragment StoreEntitySet="pay">
+          <ScalarProperty Name="pay_Id" ColumnName="pay_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presents">
+      <EntityTypeMapping TypeName="garageModel.present">
+        <MappingFragment StoreEntitySet="present">
+          <ScalarProperty Name="Present_Id" ColumnName="Present_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="garageModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchases">
+      <EntityTypeMapping TypeName="garageModel.purchase">
+        <MappingFragment StoreEntitySet="purchase">
+          <ScalarProperty Name="Purchase_Id" ColumnName="Purchase_Id" />
+          <ScalarProperty Name="Purchase_Name" ColumnName="Purchase_Name" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Purchase_Date" ColumnName="Purchase_Date" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="purchase_pay">
+      <EntityTypeMapping TypeName="garageModel.purchase_pay">
+        <MappingFragment StoreEntitySet="purchase_pay">
+          <ScalarProperty Name="Pay_Id" ColumnName="Pay_Id" />
+          <ScalarProperty Name="Purchase_Id" ColumnName="Purchase_Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Paid_Date" ColumnName="Paid_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salaries">
+      <EntityTypeMapping TypeName="garageModel.salary">
+        <MappingFragment StoreEntitySet="salary">
+          <ScalarProperty Name="Salary_Id" ColumnName="Salary_Id" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Salary_Amount" ColumnName="Salary_Amount" />
+          <ScalarProperty Name="Advance_Cut" ColumnName="Advance_Cut" />
+          <ScalarProperty Name="Total_Pay" ColumnName="Total_Pay" />
+          <ScalarProperty Name="Salary_Date" ColumnName="Salary_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stocks">
+      <EntityTypeMapping TypeName="garageModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="Stock_Id" ColumnName="Stock_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

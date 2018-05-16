@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a31d05ecd8724033ba14f799cf736e84" Name="Diagram1">
+        <EntityTypeShape EntityType="garageModel.admin" Width="1.5" PointX="2.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.advance" Width="1.5" PointX="8" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.attendence" Width="1.5" PointX="11" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.bill" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.bill_detail" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.category" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.company" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.customer" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.employee" Width="1.5" PointX="5.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.pay" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.present" Width="1.5" PointX="8.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.product" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.purchase" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.purchase_pay" Width="1.5" PointX="12.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.salary" Width="1.5" PointX="8" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="garageModel.stock" Width="1.5" PointX="13.5" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="garageModel.FK__advance__Employe__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__attendenc__Emplo__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__attendenc__Prese__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill__Customer_I__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill__Pay_Id__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill_deta__Bill___0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill_deta__Categ__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill_deta__Compa__078C1F06" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__bill_deta__Produ__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__company__Categor__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__product__Categor__4D5F7D71" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__purchase__Catego__0D44F85C" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__stock__Category___7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__product__Company__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__purchase__Compan__0E391C95" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__stock__Company_I__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__salary__Employee__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__purchase__Pay_Id__0F2D40CE" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__purchase__Produc__10216507" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__stock__Product_I__756D6ECB" ManuallyRouted="false" />
+        <AssociationConnector Association="garageModel.FK__purchase___Purch__0C50D423" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
