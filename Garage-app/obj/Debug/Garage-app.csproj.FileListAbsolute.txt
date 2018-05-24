@@ -45,6 +45,5 @@ D:\Personal\Projects\Garage-app\Garage-app\bin\System.Web.Webpages.Deployment.xm
 D:\Personal\Projects\Garage-app\Garage-app\bin\System.Web.Webpages.Razor.xml
 D:\Personal\Projects\Garage-app\Garage-app\bin\System.Web.Helpers.xml
 D:\Personal\Projects\Garage-app\Garage-app\bin\System.Web.Mvc.xml
-D:\Personal\Projects\Garage-app\Garage-app\obj\Debug\Garage-app.csprojResolveAssemblyReference.cache
 D:\Personal\Projects\Garage-app\Garage-app\obj\Debug\Garage-app.dll
 D:\Personal\Projects\Garage-app\Garage-app\obj\Debug\Garage-app.pdb

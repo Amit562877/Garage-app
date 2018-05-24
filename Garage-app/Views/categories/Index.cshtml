@@ -9,25 +9,33 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category_Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Category_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Category_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Category_Id })
-        </td>
-    </tr>
-}
-
+<table class="display" id="example">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category_Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category_Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Category_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Category_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Category_Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+</script>
