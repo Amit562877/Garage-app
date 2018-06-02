@@ -40,5 +40,25 @@
 <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable();
-        } );
+
+            $('#showGame').click(function () {
+                alert('called');
+                var url = 'Create';
+
+                $.get(url, function (data) {
+                    $('#gameContainer').html(data);
+
+                    $('#gameModal').modal('show');
+                });
+            });
+        });
+        
 </script>
+
+
+<div id='gameModal' class='modal hide fade in' data-url='@Url.Action("Create")'>
+    <div id='gameContainer'>
+    </div>
+</div>
+
+<button id='showGame'>Show Game Listing</button>

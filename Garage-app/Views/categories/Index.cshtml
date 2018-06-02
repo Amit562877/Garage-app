@@ -5,7 +5,7 @@
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create","categories",null,new { @class = "btn btn-info" })
+    <button onclick="create_fun()">Create New</button> 
 </p>
 <table class="display" id="example">
     <thead>
@@ -24,9 +24,9 @@
                     @Html.DisplayFor(modelItem => item.Category_Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "categories", null, new { id = item.Category_Id , @class = "btn btn-info" }) 
-                    @Html.ActionLink("Details", "Details", "categories", null, new { id = item.Category_Id, @class = "btn btn-info" }) 
-                    @Html.ActionLink("Delete", "Delete", "categories", null, new { id = item.Category_Id, @class = "btn btn-info" })
+                    <button onclick="edit_fun(@item.Category_Id)">Edit</button>
+                    <button onclick="detail_fun(@item.Category_Id)">Detail</button>
+                    <button onclick="delete_fun(@item.Category_Id)">Delete</button>
                 </td>
             </tr>
         }
@@ -37,3 +37,51 @@
             $('#example').DataTable();
         } );
 </script>
+
+<div id="popup" class="modal">
+
+</div>
+<script>
+    function create_fun()
+    {
+        document.getElementById('popup').style.display = 'block';
+    $("#popup").load("categories/Create");
+       var modal = document.getElementById('popup');
+       window.onclick = function (event) {
+       if (event.target == modal) {
+           modal.style.display = "none";
+       }
+       }
+    }
+    function edit_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Edit?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+    function delete_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Delete?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+    function detail_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Details?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+</script>
+
