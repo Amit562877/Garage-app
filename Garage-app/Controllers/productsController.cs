@@ -20,7 +20,11 @@ namespace Garage_app.Controllers
             var products = db.products.Include(p => p.category).Include(p => p.company);
             return View(products.ToList());
         }
-
+        public ActionResult getCompany(int id)
+        {
+            var products = db.products.Include(p => p.category).Include(p => p.company).Where(p => p.Company_Id == id);
+            return View(products.ToList()); 
+        }
         // GET: products/Details/5
         public ActionResult Details(int? id)
         {

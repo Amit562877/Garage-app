@@ -97,3 +97,5 @@ D:\Personal\Projects\Git-Garage\Garage-app\bin\System.Web.Mvc.xml
 D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.csprojResolveAssemblyReference.cache
 D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.dll
 D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.pdb
+D:\Personal\Projects\Git-Garage\Garage-app\bin\Omu.Awem.xml
+D:\Personal\Projects\Git-Garage\Garage-app\bin\Omu.AwesomeMvc.xml

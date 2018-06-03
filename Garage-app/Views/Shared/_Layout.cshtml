@@ -9,10 +9,9 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="~/Content/datatable.css" />
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css" rel="stylesheet" type="text/css" />
-    
-    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
     <style>
@@ -20,57 +19,67 @@
   box-sizing: border-box;
 }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-        </style>
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0px;
+            margin-left: 0px;
+            display: inline;
+            border: 0px;
+        }
+       .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        border: 0px;
+       }
+</style>
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Employee", "Index", "employees", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Customer", "Index", "customers", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Advance", "Index", "advances", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Attendence", "Index", "attendences", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Salary", "Index", "salaries", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Categoey", "Index", "categories", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Company", "Index", "companies", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Product", "Index", "products", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Purchase", "Index", "purchases", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="#"><b>JAY VISWAKARMA</b></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
-            </div>
+           <ul class="nav navbar-nav navbar-right">
+               <li><a href="..\employees/index"><span class="glyphicon glyphicon-user"></span> Employee</a></li>
+               <li><a href="..\customers/index"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
+               <li><a href="..\advances/index"><span class="glyphicon glyphicon-usd"></span> Advance</a></li>
+               <li><a href="..\attendences/index"><span class="glyphicon glyphicon-calendar"></span> Attendance</a></li>
+               <li><a href="..\salaries/index"><span class="glyphicon glyphicon-usd"></span> Salary</a></li>
+               <li><a href="..\categories/index"><span class="glyphicon glyphicon-list"></span> Category</a></li>
+               <li><a href="..\companies/index"><span class="glyphicon glyphicon-signal"></span> Company</a></li>
+               <li><a href="..\products/index"><span class="glyphicon glyphicon-gift"></span> Product</a></li>
+               <li><a href="..\purchases/index"><span class="glyphicon glyphicon-shopping-cart"></span> Purchase</a></li>
+               <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+            </ul>
         </div>
-    </div>
-    <div style="width:95%;margin: 0 auto">
+    </nav>
+
+       <div style="width:95%;margin: 0 auto">
         <script src="~/scripts/jquery-1.10.2.min.js"></script>
         <script src="~/scripts/jquery-1.10.2.js"></script>
         <script src="~/scripts/bootstrap.min.js"></script>
         <script src="~/scripts/bootstrap.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.jqueryui.min.js"></script>
-
-
-
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
         <br>
+
         @RenderBody()
         <hr />
         <footer>
