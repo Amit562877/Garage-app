@@ -8,8 +8,8 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="display" id="example">
-    <thead>
+<table class="display" id="example" data-page-length='10'>
+    <thead style="background-color:silver">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Attendence_Date)
@@ -25,29 +25,118 @@
     </thead>
     <tbody>
         @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Attendence_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.employee.Employee_Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.present.Value)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Attendence_Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Attendence_Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Attendence_Id })
-            </td>
-        </tr>
-    }
-</tbody>
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Attendence_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.employee.Employee_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.present.Value)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Attendence_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Attendence_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Attendence_Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+<div id="popup" class="modal">
+
+</div>
 <script type="text/javascript">
         $(document).ready(function() {
-            $('#example').DataTable();
+            $('#example').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                lengthMenu: [
+                [10, 25, 50, -1],
+                ['10', '25', '50', 'Show all']
+                ],
+                buttons: [
+                    {
+                        extend: 'pdf',
+                        title: "Employee Report",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        },
+                    },
+                    {
+                        extend: 'excel',
+                        title: "Employee Report",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: "Employee Report",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        }
+                    },
+                   'colvis',
+                    'pageLength'
+
+                ]
+            } );
+
         } );
+    function create_fun()
+    {
+
+    document.getElementById('popup').style.display = 'block';
+    $("#popup").load("Create");
+
+       var modal = document.getElementById('popup');
+       window.onclick = function (event) {
+       if (event.target == modal) {
+           modal.style.display = "none";
+       }
+       }
+       $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
+       $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
+    }
+    function edit_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Edit?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+
+            }
+        }
+        $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
+        $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
+    }
+    function delete_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Delete?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
+        $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
+    }
+    function detail_fun(Category_Id) {
+        document.getElementById('popup').style.display = 'block';
+        $("#popup").load("categories/Details?id=" + Category_Id);
+        var modal = document.getElementById('popup');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
+       $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
+    }
 </script>
