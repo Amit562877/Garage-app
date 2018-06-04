@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button type="button" class="btn btn-default btn-sm" onclick="create_fun()">
+        <span class="glyphicon glyphicon-plus-sign"></span> Create New
+    </button>
 </p>
 <table class="display" id="example" data-page-length='10'>
     <thead style="background-color:silver">
@@ -29,9 +31,15 @@
                     @Html.DisplayFor(modelItem => item.category.Category_Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Company_Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Company_Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Company_Id })
+                    <button type="button" class="btn btn-default btn-sm" onclick="edit_fun(@item.Company_Id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" onclick="delete_fun(@item.Company_Id)">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm" onclick="detail_fun(@item.Company_Id)">
+                        <span class="glyphicon glyphicon-comment"></span> Detail
+                    </button>
                 </td>
             </tr>
         }

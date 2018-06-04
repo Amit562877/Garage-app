@@ -53,12 +53,12 @@ D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.Build.Tasks.Code
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.CodeAnalysis.dll
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.VisualBasic.Core.targets
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\System.Collections.Immutable.dll
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\System.Reflection.Metadata.dll
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\vbc.exe
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\VBCSCompiler.exe
-D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\Microsoft.VisualBasic.Core.targets
 D:\Personal\Projects\Git-Garage\Garage-app\bin\roslyn\VBCSCompiler.exe.config
 D:\Personal\Projects\Git-Garage\Garage-app\bin\Garage-app.dll.config
 D:\Personal\Projects\Git-Garage\Garage-app\bin\Garage-app.dll
@@ -94,8 +94,5 @@ D:\Personal\Projects\Git-Garage\Garage-app\bin\System.Web.Webpages.Deployment.xm
 D:\Personal\Projects\Git-Garage\Garage-app\bin\System.Web.Webpages.Razor.xml
 D:\Personal\Projects\Git-Garage\Garage-app\bin\System.Web.Helpers.xml
 D:\Personal\Projects\Git-Garage\Garage-app\bin\System.Web.Mvc.xml
-D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.csprojResolveAssemblyReference.cache
 D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.dll
 D:\Personal\Projects\Git-Garage\Garage-app\obj\Debug\Garage-app.pdb
-D:\Personal\Projects\Git-Garage\Garage-app\bin\Omu.Awem.xml
-D:\Personal\Projects\Git-Garage\Garage-app\bin\Omu.AwesomeMvc.xml

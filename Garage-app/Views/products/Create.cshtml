@@ -19,14 +19,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Category_Id, "Category_Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Category_Id", null, htmlAttributes: new { onchange= "getCompany(this.value);", @class = "form-control"})
+                @Html.DropDownList("Category_Id", null, htmlAttributes: new {@id="category", onchange= "getCompany()", @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Category_Id, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Company_Id, "Company_Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("Company_Id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Company_Id", null, htmlAttributes: new {@id="company", @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Company_Id, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,7 +57,25 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+<script type="text/javascript">
+    function getCompany() {
+        var e = document.getElementById("category");
+        var id = e.options[e.selectedIndex].value;
+        $.ajax({
+            url: '/products/getCompany',
+            type: "GET",
+            dataType: "JSON",
+            data: { category_id: id },
+            success: function (Companies) {
+                $("#company").html(""); // clear before appending new list 
+                $.each(Companies, function (i, Company) {
+                    $("#company").append(
+                        $('<option></option>').val(Company.Company_Id).html(Company.Company_Name));
+                });
+            }
+        });
+    }
+</script>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

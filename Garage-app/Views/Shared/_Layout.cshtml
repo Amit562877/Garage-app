@@ -9,9 +9,8 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="~/Content/datatable.css" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
     <style>
@@ -37,6 +36,13 @@
         }
        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
         border: 0px;
+       }
+       #popup{
+           background-color:silver;
+           width:60%;
+           min-height:50%;
+           margin-top:200px;
+           
        }
 </style>
 </head>
@@ -67,17 +73,16 @@
         <script src="~/scripts/jquery-1.10.2.js"></script>
         <script src="~/scripts/bootstrap.min.js"></script>
         <script src="~/scripts/bootstrap.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+        <script src="~/scripts/Datatable/jquery.dataTables.min.js"></script>
+        <script src="~/scripts/Datatable/dataTables.bootstrap.min.js"></script>
+        <script src="~/scripts/Datatable/dataTables.buttons.min.js"></script>
+        <script src="~/scripts/Datatable/buttons.bootstrap.min.js"></script>
+        <script src="~/scripts/Datatable/jszip.min.js"></script>
+        <script src="~/scripts/Datatable/pdfmake.min.js"></script>
+        <script src="~/scripts/Datatable/vfs_fonts.js"></script>
+        <script src="~/scripts/Datatable/buttons.html5.min.js"></script>
+        <script src="~/scripts/Datatable/buttons.print.min.js"></script>
+        <script src="~/scripts/Datatable/buttons.colVis.min.js"></script>
         <br>
 
         @RenderBody()

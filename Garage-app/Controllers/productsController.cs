@@ -19,11 +19,14 @@ namespace Garage_app.Controllers
         {
             var products = db.products.Include(p => p.category).Include(p => p.company);
             return View(products.ToList());
+
         }
-        public ActionResult getCompany(int id)
+        [HttpGet]
+        public ActionResult getCompany(int? category_id)
         {
-            var products = db.products.Include(p => p.category).Include(p => p.company).Where(p => p.Company_Id == id);
-            return View(products.ToList()); 
+            db.Configuration.ProxyCreationEnabled = false;
+            var company = db.companies.Where(c => c.Category_Id == category_id);
+            return Json(company, JsonRequestBehavior.AllowGet);
         }
         // GET: products/Details/5
         public ActionResult Details(int? id)
