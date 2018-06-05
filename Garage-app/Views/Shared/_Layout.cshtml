@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="~/Content/datatable.css" />
     <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/submenu.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
     <style>
@@ -45,26 +49,40 @@
            
        }
 </style>
+
 </head>
 <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"><b>JAY VISWAKARMA</b></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> <b>JAY VISWAKARMA</b></a>
             </div>
-           <ul class="nav navbar-nav navbar-right">
-               <li><a href="..\employees/index"><span class="glyphicon glyphicon-user"></span> Employee</a></li>
-               <li><a href="..\customers/index"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
-               <li><a href="..\advances/index"><span class="glyphicon glyphicon-usd"></span> Advance</a></li>
-               <li><a href="..\attendences/index"><span class="glyphicon glyphicon-calendar"></span> Attendance</a></li>
-               <li><a href="..\salaries/index"><span class="glyphicon glyphicon-usd"></span> Salary</a></li>
-               <li><a href="..\categories/index"><span class="glyphicon glyphicon-list"></span> Category</a></li>
-               <li><a href="..\companies/index"><span class="glyphicon glyphicon-signal"></span> Company</a></li>
-               <li><a href="..\products/index"><span class="glyphicon glyphicon-gift"></span> Product</a></li>
-               <li><a href="..\purchases/index"><span class="glyphicon glyphicon-shopping-cart"></span> Purchase</a></li>
-               <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="..\employees/index"><span class="glyphicon glyphicon-user"></span> Employee</a></li>
+                    <li><a href="..\customers/index"><span class="glyphicon glyphicon-user"></span> Customer</a></li>
+                    <li><a href="..\advances/index"><span class="glyphicon glyphicon-usd"></span> Advance</a></li>
+                    <li><a href="..\attendences/index"><span class="glyphicon glyphicon-calendar"></span> Attendance</a></li>
+                    <li><a href="..\salaries/index"><span class="glyphicon glyphicon-usd"></span> Salary</a></li>
+                    <li><a href="..\categories/index"><span class="glyphicon glyphicon-list"></span> Category</a></li>
+                    <li><a href="..\companies/index"><span class="glyphicon glyphicon-signal"></span> Company</a></li>
+                    <li><a href="..\products/index"><span class="glyphicon glyphicon-gift"></span> Product</a></li>
+                    <li><a href="..\purchases/index"><span class="glyphicon glyphicon-shopping-cart"></span> Purchase</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Setting</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-certificate"></span> Profile</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 

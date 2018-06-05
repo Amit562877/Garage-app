@@ -147,6 +147,7 @@
     <Content Include="Content\dataTables.bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\datatable.css" />
+    <Content Include="Content\submenu.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Garage.Context.tt">
@@ -324,13 +325,13 @@
     <Content Include="Views\categories\Delete.cshtml" />
     <Content Include="Views\categories\Details.cshtml" />
     <Content Include="Views\categories\Edit.cshtml" />
-    <Content Include="Views\categories\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\employees\Create.cshtml" />
     <Content Include="Views\employees\Delete.cshtml" />
     <Content Include="Views\employees\Details.cshtml" />
     <Content Include="Views\employees\Edit.cshtml" />
     <Content Include="Views\employees\Index.cshtml" />
+    <Content Include="Views\categories\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

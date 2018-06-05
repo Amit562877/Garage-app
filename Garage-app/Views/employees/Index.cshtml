@@ -125,9 +125,9 @@
        $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
        $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function edit_fun(Category_Id) {
+    function edit_fun(Employee_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Edit?id=" + Category_Id);
+        $("#popup").load("Edit?id=" + Employee_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {
@@ -138,9 +138,9 @@
         $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
         $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function delete_fun(Category_Id) {
+    function delete_fun(Employee_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Delete?id=" + Category_Id);
+        $("#popup").load("Delete?id=" + Employee_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {
@@ -150,9 +150,9 @@
         $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
         $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function detail_fun(Category_Id) {
+    function detail_fun(Employee_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Details?id=" + Category_Id);
+        $("#popup").load("Details?id=" + Employee_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {

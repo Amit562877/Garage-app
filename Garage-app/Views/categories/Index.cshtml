@@ -8,7 +8,7 @@
         <span class="glyphicon glyphicon-plus-sign"></span> Create New
     </button>
 </p>
-<table class="display" id="example"  data-page-length='10'>
+<table class="display" id="example" data-page-length='10'>
     <thead style="background-color:silver">
         <tr>
             <th>
@@ -39,6 +39,9 @@
         }
     </tbody>
 </table>
+<div class="modal hide fade in" id="edit-person">
+    <div id="edit-person-container"></div>
+</div>
 <div id="popup" class="modal">
 
 </div>
@@ -59,26 +62,48 @@
                         exportOptions: {
                             columns: ':visible'
                         },
+                        className: 'glyphicon glyphicon-download-alt',
+                        text:' PDF'
                     },
                     {
                         extend: 'excel',
                         title: "Employee Report",
                         exportOptions: {
                             columns: ':visible'
-                        }
+                        },
+                        className: 'glyphicon glyphicon-download-alt',
+                        text:' Excel'
                     },
                     {
                         extend: 'print',
                         title: "Employee Report",
                         exportOptions: {
                             columns: ':visible'
-                        }
+                        },
+                        className: 'glyphicon glyphicon-print',
+                        text:' Print'
                     },
-                   'colvis',
-                    'pageLength'
+                    {
+                        extend:'colvis',
+                        className: 'glyphicon glyphicon-eye-close',
+                        text:' Hide'
+                    },
+                    {
+                        extend:'pageLength',
+                        className: 'glyphicon glyphicon-hand-down',
+                        text:' Limit'
+                    }
                 ]
             } );
 
+     $('.edit-person').click(function () {
+         var url = "Edit"; // the url to the controller
+            var id = $(this).attr('data-id'); // the id that's given to each button in the list
+            $.get(url + '/' + id, function (data) {
+                $('#edit-person-container').html(data);
+                $('#edit-person').modal('show');
+            });
+        });
         } );
     function create_fun()
     {

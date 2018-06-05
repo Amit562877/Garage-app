@@ -79,6 +79,9 @@
 <div id="popup" class="modal">
 
 </div>
+<div id="popup" class="modal">
+
+</div>
 <script type="text/javascript">
         $(document).ready(function() {
             $('#example').DataTable({
@@ -93,21 +96,21 @@
                         extend: 'pdf',
                         title: "Employee Report",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                           columns: ':visible'
                         },
                     },
                     {
                         extend: 'excel',
                         title: "Employee Report",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: ':visible'
                         }
                     },
                     {
                         extend: 'print',
                         title: "Employee Report",
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: ':visible'
                         }
                     },
                    'colvis',
@@ -132,9 +135,9 @@
        $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
        $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function edit_fun(Category_Id) {
+    function edit_fun(Purchase_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Edit?id=" + Category_Id);
+        $("#popup").load("Edit?id=" + Purchase_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {
@@ -145,9 +148,9 @@
         $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
         $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function delete_fun(Category_Id) {
+    function delete_fun(Purchase_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Delete?id=" + Category_Id);
+        $("#popup").load("Delete?id=" + Purchase_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {
@@ -157,9 +160,9 @@
         $("#popup").css("top", ((window.screen.height - $("#popup").height()) / 2)*(-1));
         $("#popup").css("left", ((window.screen.width - $("#popup").width()) / 2));
     }
-    function detail_fun(Category_Id) {
+    function detail_fun(Purchase_Id) {
         document.getElementById('popup').style.display = 'block';
-        $("#popup").load("categories/Details?id=" + Category_Id);
+        $("#popup").load("Details?id=" + Purchase_Id);
         var modal = document.getElementById('popup');
         window.onclick = function (event) {
             if (event.target == modal) {
